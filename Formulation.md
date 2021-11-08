@@ -2,9 +2,9 @@
 ## State
 1. <img src="https://render.githubusercontent.com/render/math?math=C = \prod {C_n}"> (Computation_power (learning_time)) : 1xn vector (C), 1x1 variable (C_n)
 2. <img src="https://render.githubusercontent.com/render/math?math=D = \prod {D_n}"> (D2D communication rate) : nx(n-1) array (D), 1x(n-1) vector (D_n)
-3. T = Allocation Task index : 1xN! vector = {-1, N} ==> finish status
+3. T = Allocation Task index : 1xN! vector = {-1,..., N+1} ==> finish status
 4. <img src="https://render.githubusercontent.com/render/math?math=B = \prod {B_n} "> (Buffer status)
-  - <img src="https://render.githubusercontent.com/render/math?math=B_n=[b_{n,1},...,b_{n,n!}], b_{n,t}={0: empty, 1: to be process, 2: to be transmits}"> Due to the limited storage, node $n$ cannot store deep networks over $*_n$ networks.   
+  - <img src="https://render.githubusercontent.com/render/math?math=B_n=[b_{n,1},...,b_{n,n!}], b_{n,t}=\{0: empty, 1: to be process, 2: to be transmits\}"> Due to the limited storage, node $n$ cannot store deep networks over $*_n$ networks.   
 6. wireless status (?) ==> D2D with shared network, D2D with unshared network.
 
 ## Action
