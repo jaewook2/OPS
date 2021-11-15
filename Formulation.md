@@ -2,14 +2,16 @@
 ## State
 1. <img src="https://render.githubusercontent.com/render/math?math=C = \prod {C_n}"> (Computation_power (learning_time)) : 1xn vector (C), 1x1 variable (C_n)
 2. <img src="https://render.githubusercontent.com/render/math?math=D = \prod {D_n}"> (D2D communication rate) : nx(n-1) array (D), 1x(n-1) vector (D_n)
-3. T = Allocation Task index : 1xN! vector = {-1,..., N+1} ==> finish status
+3. T = Allocation Task index : 1xN! vector = {-1,..., N+1} ==> -1 represents the learning task $n$ is not allocated, >-1 means the task is allocated, 0< <N  represents the number finsihed learning job, N represents $n$ tasks are finised.
 4. <img src="https://render.githubusercontent.com/render/math?math=B = \prod {B_n} "> (Buffer status)
-  - <img src="https://render.githubusercontent.com/render/math?math=B_n=[b_{n,1},...,b_{n,n!}], b_{n,t}=\{0: empty, 1: to be process, 2: to be transmits\}"> Due to the limited storage, node $n$ cannot store deep networks over $*_n$ networks.   
+  - <img src="https://render.githubusercontent.com/render/math?math=B_n=[b_{n,1},...,b_{n,n!}], b_{n,t}=\{0: empty, 1: to be process, 2: to be transmits\}"> Due to the limited storage, node $n$ cannot store deep networks over $M_n$ networks ==> if $the number of stored networks is over than $M_n$, the latest arrived network is discard ==> state change -1   
 6. wireless status (?) ==> D2D with shared network, D2D with unshared network.
+7. Execution time  E.
+
 
 ## Action
-The agent only detemire the allocation tasks at the start epoch. 
-1. A^T = Allocation Task index : 1xN! vector = {0, 1} 
+The agent determine the task allocation and scheduling. 
+1. A^T = Allocation Task index : 1xN! vector = {0, 1} if $T_n$ is minus one, the action can be determined.
 The remained action is excuted at every epoch.  
 2. <img src="https://render.githubusercontent.com/render/math?math=A^P =\prod{A^P_n}"> = Processing task at node $n$ for task in buffer state : 1xN!
 3. <img src="https://render.githubusercontent.com/render/math?math=A^D =\prod{A^D_n}"> = Transmission task to node $n$ for task in done : 1xN!
