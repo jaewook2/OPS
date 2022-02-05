@@ -1,13 +1,30 @@
+알고리즘: PPO with optimization algorithm
+PPO 하나로 문제를 풀기에는 너무 액션이 많음. ==> action space를 1로 두고.
+- 매 라운드가 dicision epoch이라고 가정 (D2D communication, **, **)
+- Algorithm을 통해서 task scheduling ? ==> rewards.
+==> 결국 하나씩 걸리는 시간을 갖다 ==> 어떤 순서로 할당하느냐에 따라 다르다
+1) 음.. 알아보자.
+
+
+
+###########
 # PPO-based **allotion (PSA)
 ## Object: 
  The maximize the number of updated paraters to FL server wthin time deadline ==> 이것을 기점으로.
  The minimize the round time to receive $N$ updated parameters at the FL server
 ## System model
  : Shared model? or Non-shared model? ==> Non-shared model can be defined (디아비스간 독립적인 무선자원을 할당 받는다고 가정)
- : 
+
 ## State
+1. FL side
+ - Tasks state : 1XN! vector = {-1, 0, 1,2, ..., N} 
+ - Tasks state : 1XN! vector = {-1, 0, 1,2, ..., N}
+
+
 1. <img src="https://render.githubusercontent.com/render/math?math=C = \prod {C_n}"> (Computation_power (learning_time)) : 1xn vector (C), 1x1 variable (C_n)
 2. <img src="https://render.githubusercontent.com/render/math?math=D = \prod {D_n}"> (D2D communication rate) : nx(n-1) array (D), 1x(n-1) vector (D_n)
+
+
 3. T = Allocation Task index : 1xN! vector = {-1,..., N+1} ==> -1 represents the learning task $n$ is not allocated, >-1 means the task is allocated, 0< <N  represents the number finsihed learning job, N represents $n$ tasks are finised.
 4. Device state 필요
  - processing state (1xn) size : processing (timer-based): {-1, 0, 1, 2, 3, ..., T_{n}} represents the reamined processing time. Specially, -1 represents this task is not procssed yet. 0 represents this learning task is processed and buffered.
